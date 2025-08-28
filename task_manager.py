@@ -52,6 +52,15 @@ def delete_task(tasks):
     else:
         print("Task ID not found.")
 
+# Delete all tasks
+def delete_all_tasks(tasks):
+    confirm = input("Are you sure you want to delete ALL tasks? (y/n): ").lower()
+    if confirm == "y":
+        tasks.clear()
+        print("All tasks have been deleted.")
+    else:
+        print("Operation cancelled.")
+
 # Main Menu
 def main():
     tasks = load_tasks()
@@ -61,7 +70,8 @@ def main():
         print("2. View Task")
         print("3. Mark Task as Complete")
         print("4. Delete Task")
-        print("5. Exit")
+        print("5. Delete All Tasks")
+        print("6. Exit")
         choice = input("Enter your choice: ")
         
         if choice == "1":
@@ -73,6 +83,8 @@ def main():
         elif choice == "4":
             delete_task(tasks)
         elif choice == "5":
+            save_tasks(tasks)
+        elif choice == "6":
             save_tasks(tasks)
             print("-_-Goodbye-_-")
             break 
